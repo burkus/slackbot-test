@@ -21,14 +21,13 @@ export default async function shortcuts(req: VercelRequest, res: VercelResponse)
             })
         }
     }
-    catch {
-
+    catch (e) {
+        console.error(e)
     }
     finally {
         res.status(200).send({
             text: "hello"
         })
     }
-
 
 }

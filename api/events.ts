@@ -1,7 +1,7 @@
 import { App } from '@slack/bolt'
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import { respondToChallenge } from '_lib'
-import { validateSlackRequest } from '_validate'
+import { respondToChallenge } from './_lib'
+import { validateSlackRequest } from './_validate'
 
 const { SLACK_SIGNING_SECRET } = process.env
 

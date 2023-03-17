@@ -9,9 +9,7 @@ export default async function shortcuts(req: VercelRequest, res: VercelResponse)
 
     if (req.body) {
         const { payload } = req.body
-        const { type, response_url, message } = payload
-        console.log(payload)
-        console.log(typeof payload)
+        const { type, response_url, message } = JSON.parse(payload)
         if (type === 'message_action') {
             respondToMessage(response_url, "blah blah blah", message.ts)
         }

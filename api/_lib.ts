@@ -19,7 +19,7 @@ export async function respondToMessage(url: string, text: string, thread: string
         method: 'POST'
     }
 
-    const request = https.request(options)
+    const request = https.request(options, res => console.log(res))
     request.write(data)
     request.end()
 }

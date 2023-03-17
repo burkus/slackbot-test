@@ -16,4 +16,6 @@ export default async function events(req: VercelRequest, res: VercelResponse) {
     else if (req.body.event.type === 'app_mention') {
 
     }
+
+    console.log(req.body)
 }

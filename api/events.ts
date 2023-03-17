@@ -7,7 +7,7 @@ const { SLACK_SIGNING_SECRET } = process.env
 export default async function events(req: VercelRequest, res: VercelResponse) {
     validateSlackRequest(req, SLACK_SIGNING_SECRET as string)
 
-    try {
+    if (req.body) {
         const { type } = req.body
 
         if (type === 'url_verification') {
@@ -17,8 +17,5 @@ export default async function events(req: VercelRequest, res: VercelResponse) {
         else if (type === 'app_mention') {
 
         }
-    }
-    catch {
-
     }
 }

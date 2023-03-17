@@ -8,7 +8,7 @@ export default async function shortcuts(req: VercelRequest, res: VercelResponse)
     console.log(req.body)
     validateSlackRequest(req, SLACK_SIGNING_SECRET as string)
 
-    try {
+    if (req.body) {
         const { type } = req.body
 
         if (type === 'url_verification') {
@@ -16,18 +16,13 @@ export default async function shortcuts(req: VercelRequest, res: VercelResponse)
         }
 
         else if (type === 'message_action') {
-            res.status(200).send({
+            return res.status(200).send({
                 text: "blah blah blah"
             })
         }
     }
-    catch (e) {
-        console.error(e)
-    }
-    finally {
-        res.status(200).send({
-            text: "hello"
-        })
-    }
 
+    res.status(200).send({
+        text: "hello"
+    })
 }

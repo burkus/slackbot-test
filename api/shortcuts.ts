@@ -14,12 +14,12 @@ export default async function shortcuts(req: VercelRequest, res: VercelResponse)
     }
 
     else if (type === 'message_action') {
-        return res.send({
+        return res.status(200).send({
             text: "blah blah blah"
         })
     }
 
-    res.send({
+    res.status(200).send({
         text: "blah blah blah"
     })
 }

@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import https from 'https'
+import axios from 'axios'
 
 export async function respondToChallenge(req: VercelRequest, res: VercelResponse) {
     res.status(200).send({
@@ -14,12 +14,7 @@ export async function respondToMessage(url: string, text: string, thread: string
         "replace_original": "false",
         "thread_ts": thread
     }
-
-    const options = {
-        method: 'POST'
-    }
-
-    const request = https.request(options, res => console.log(res))
-    request.write(data)
-    request.end()
+    axios
+        .post(url, data)
+        .then(console.log)
 }

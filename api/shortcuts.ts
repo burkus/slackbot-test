@@ -14,7 +14,9 @@ export default async function shortcuts(req: VercelRequest, res: VercelResponse)
     }
 
     else if (type === 'message_action') {
-
+        res.send({
+            text: "blah blah blah"
+        })
     }
 
     console.log(req.body)

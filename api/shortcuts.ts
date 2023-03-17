@@ -5,10 +5,10 @@ import { validateSlackRequest } from './_validate'
 const { SLACK_SIGNING_SECRET } = process.env
 
 export default async function shortcuts(req: VercelRequest, res: VercelResponse) {
+    console.log(req.body)
     validateSlackRequest(req, SLACK_SIGNING_SECRET)
 
     const { type } = req.body
-    console.log(req.body)
 
     if (type === 'url_verification') {
         await respondToChallenge(req, res)

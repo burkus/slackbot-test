@@ -1,0 +1,14 @@
+{
+  "name": "auto-response",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "@slack/bolt": "^3.12.2",
+    "@vercel/node": "^2.9.13"
+  }
+}

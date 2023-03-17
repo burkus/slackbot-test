@@ -4,7 +4,7 @@ import { validateSlackRequest } from './_validate'
 
 const { SLACK_SIGNING_SECRET } = process.env
 
-export default async function events(req: VercelRequest, res: VercelResponse) {
+export default async function shortcuts(req: VercelRequest, res: VercelResponse) {
     validateSlackRequest(req, SLACK_SIGNING_SECRET)
 
     const { type } = req.body
@@ -13,7 +13,7 @@ export default async function events(req: VercelRequest, res: VercelResponse) {
         await respondToChallenge(req, res)
     }
 
-    else if (req.body.event.type === 'app_mention') {
+    else if (type === 'message_action') {
 
     }
 
